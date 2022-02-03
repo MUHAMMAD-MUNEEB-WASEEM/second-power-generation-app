@@ -8,51 +8,46 @@ import {
   } from 'mathjs'
 
 
-function LoadProfile({loadProfileData, capitalFactor, interest_p, fuel_p, consumption, image, remarks, button}) {
+function LoadProfile3({image,button}) {
 
-    //input
-    const [fuel, setFuel] = useState(fuel_p);
-    const [interest, setInterest] = useState(interest_p);
+    const fuel = 0.08;
+    const interest = -0.27;
+
+    const loadProfileData = [11254,
+        10790,
+        10626,
+        10599,
+        10695,
+        11105,
+        12343,
+        13986,
+        15190,
+        15497,
+        15403,
+        15283,
+        14887,
+        14780,
+        14641,
+        14540,
+        14687,
+        15073,
+        15051,
+        15709,
+        15069,
+        14199,
+        13193,
+        12257,        
+        ]
 
 
 
-    //Load Profile efficiency
+    // maxDemand = Math.max(...loadProfileData) * 1000;
 
-    // const loadProfileData = loadProfileData;
-
-
-
-    //Max DEmand
-
-    const maxDemand = Math.max(...loadProfileData) * 1000;
-
-    console.log("maxdemand", maxDemand);
-
-    //Energy in 24 hours
+    const [maxDemand, setMaxDemand] = useState(Math.max(...loadProfileData) * 1000 || 0)
 
     const energy = loadProfileData.reduce((a, b) => a + b, 0) * 1000;
 
-    console.log("unit Genereated", energy);
-
-    //Load factor
-
     const loadFactor = energy/(maxDemand*24);
-
-    console.log("load factor", loadFactor);
-
-    // Plant Capacity Factor
-
-    const plantCapacityFactor = energy/(maxDemand*24);
-
-    console.log("Plant CApacity FActor", plantCapacityFactor);
-
-    //Plant Use Factor
-
-    const plantUseFactor = energy/(maxDemand*24);
-
-    console.log("Plant Use Factor", plantUseFactor);
-
-
 
 
     //COSTING
@@ -65,13 +60,11 @@ function LoadProfile({loadProfileData, capitalFactor, interest_p, fuel_p, consum
 
     //Annual fixed cost
 
-    // const capitalFactor = capitalFactor;
+    const capitalFactor = 1000;
 
     const capitalCost = capitalFactor*maxDemand;
 
     console.log("capital cost / a", format(capitalCost,3));
-
-    //Semi Fixed Cost
 
     const semiFixedCost = (interest/100)*capitalCost;
 
@@ -80,9 +73,9 @@ function LoadProfile({loadProfileData, capitalFactor, interest_p, fuel_p, consum
     console.log("semi fixed cost", format(semiFixedCost,3));
     console.log("b", b);
 
-    //Running Cost
-
-    // const consumption = consumption;
+    
+    const consumption = 1;
+    
     const runningCost = consumption * fuel * unitGenerated;
 
     const c = runningCost/unitGenerated;
@@ -111,14 +104,14 @@ function LoadProfile({loadProfileData, capitalFactor, interest_p, fuel_p, consum
 
                 <div className="loadProfile__input__container">
                     <div className="loadProfile__input">
-                        <h3>Fuel Cost = </h3>
-                        <input type="number" value={fuel} onChange={(e)=>setFuel(e.target.value)}></input>
+                        <h3>Max Demand = </h3>
+                        <input type="number" value={maxDemand} onChange={(e)=>setMaxDemand(e.target.value)}></input>
                     </div>
 
-                    <div className="loadProfile__input">
+                    {/* <div className="loadProfile__input">
                         <h3>Interest Rate = </h3>
                         <input type="number" value={interest} onChange={(e)=>setInterest(e.target.value)}></input>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="loadProfile__result__container">
@@ -132,7 +125,7 @@ function LoadProfile({loadProfileData, capitalFactor, interest_p, fuel_p, consum
                         <div className="loadProfile__technical">
 
                             <div className="loadProfile__technical__heading">
-                                <h1>Technical Analysis</h1>
+                                <h2>Electrical Parameters</h2>
                             </div>
 
                             <div className="loadProfile__result">
@@ -140,29 +133,19 @@ function LoadProfile({loadProfileData, capitalFactor, interest_p, fuel_p, consum
                                 <input type="number" value={loadFactor.toFixed(2) * 100}></input>
                             </div>
 
-                            {/* <div className="loadProfile__result">
-                                <h3>Plant Use Factor = </h3>
-                                <input type="number" value={plantUseFactor.toFixed(2) * 100}></input>
-                            </div>
-
-                            <div className="loadProfile__result">
-                                <h3>Plant Capacity Factor = </h3>
-                                <input type="number" value={plantCapacityFactor.toFixed(2) * 100}></input>
-                            </div> */}
-
                             <div className="loadProfile__result">
                                 <h3>Max Demand (kW) = </h3>
                                 <input type="number" value={format(maxDemand,10)}></input>
                             </div>
 
                             <div className="loadProfile__result">
-                                <h3>Energy in 24 hours (kW) = </h3>
+                                <h3>Energy produced in 24 hours (kW) = </h3>
                                 <input type="number" value={format(energy, 3)}></input>
                             </div>
 
 
                             <div className="loadProfile__result">
-                                <h3>Units generated per annum (kWh) = </h3>
+                                <h3>Units generated (kWh) = </h3>
                                 <input type="number" value={format(unitGenerated,4)}></input>
                             </div>
                         
@@ -171,7 +154,7 @@ function LoadProfile({loadProfileData, capitalFactor, interest_p, fuel_p, consum
                         <div className="loadProfile__economical">
 
                             <div className="loadProfile__economical__heading">
-                                <h1>Economical Analysis</h1>
+                                <h2>Costing</h2>
                             </div>
 
                             <div className="loadProfile__result">
@@ -197,12 +180,11 @@ function LoadProfile({loadProfileData, capitalFactor, interest_p, fuel_p, consum
                     </div>
 
                     <div className="loadProfile__remarks">
-                        <h3>Remarks = {remarks}</h3>
                         
                         {button&&(
                         <div className="loadProfile__remarks__button">
                             
-                            <Link to="/loadprofiles/loadprofile6/recommendation">
+                            <Link to="/loadprofile6/recommendation">
                                 <button>
                                     {button}
                                 </button>
@@ -220,4 +202,4 @@ function LoadProfile({loadProfileData, capitalFactor, interest_p, fuel_p, consum
   )
 }
 
-export default LoadProfile;
+export default LoadProfile3;

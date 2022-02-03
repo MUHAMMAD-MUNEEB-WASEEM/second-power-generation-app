@@ -1,10 +1,16 @@
 
 
 
+.comparision__table__container{
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+}
+
 .comparision__table{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     text-align: center;
 }
 

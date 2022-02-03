@@ -5,8 +5,8 @@
 }
 
 .loadProfile__chart > img{
-    height: 80vh;
-    width: 80vw;
+    height: 60vh;
+    width: 45vw;
 }
 
 .loadProfile__result__container{
@@ -15,9 +15,9 @@
 
 .loadProfile__result__main{
     display: flex;
+    flex-direction:column;
     /* margin: 0px 0px 0px 30px; */
-    align-items: center;
-    justify-content: space-around;
+    margin-left: 30px;
 }
 
 .result__heading{

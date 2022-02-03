@@ -5,6 +5,7 @@ function SelectLoadProfiles() {
   return (
         <div className="selectLoadProfiles">
             <div className="selectLoadProfiles__container">
+            <h1>Select Load Profile</h1>
                 <div className="selectLoadProfiles__main">
 
 

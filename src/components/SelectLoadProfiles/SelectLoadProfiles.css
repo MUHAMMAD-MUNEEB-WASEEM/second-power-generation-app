@@ -5,19 +5,19 @@
 
 
 .selectLoadProfiles__container{
-    margin: 90px 100px;
-    border: 2px solid #000; 
+    margin: 30px 100px;
 }
 
 .selectLoadProfiles__main{
     display: flex;
     flex-direction: column;
-    padding: 100px 20px;
+    padding: 0px 20px;
     justify-content: space-evenly;
 }
 
 
 .selectLoadProfiles__heading__container{
     display:flex;
+    flex-direction: column;
     justify-content: space-around;
 }
