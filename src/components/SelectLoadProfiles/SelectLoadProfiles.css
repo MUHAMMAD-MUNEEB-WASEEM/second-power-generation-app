@@ -1,0 +1,23 @@
+.selectLoadProfiles{
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+
+.selectLoadProfiles__container{
+    margin: 90px 100px;
+    border: 2px solid #000; 
+}
+
+.selectLoadProfiles__main{
+    display: flex;
+    flex-direction: column;
+    padding: 100px 20px;
+    justify-content: space-evenly;
+}
+
+
+.selectLoadProfiles__heading__container{
+    display:flex;
+    justify-content: space-around;
+}

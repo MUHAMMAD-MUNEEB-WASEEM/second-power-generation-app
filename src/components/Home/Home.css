@@ -1,0 +1,12 @@
+.home{
+    max-height: 100vh;
+}
+
+.home__button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 200px 0px 0px 0px;
+}
