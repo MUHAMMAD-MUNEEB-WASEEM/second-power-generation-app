@@ -5,11 +5,22 @@ import Home from './components/Home/Home'
 import SelectLoadProfiles from './components/SelectLoadProfiles/SelectLoadProfiles'
 import LoadProfile from './components/LoadProfile/LoadProfile1'
 
+
+
 import {BrowserRouter as Router,  Routes, Route } from 'react-router-dom'
 
 //images
 
-import image1 from './assets/load-profile-images/1.png'
+// import image1 from './assets/load-profile-images/1.png'
+import image1 from './assets/load-profile-images/sweden.png';
+import image2 from './assets/load-profile-images/norway.png';
+import image3 from './assets/load-profile-images/netherland.png';
+import image4 from './assets/load-profile-images/malaysia.png';
+import image5 from './assets/load-profile-images/ireland.png';
+
+
+import poland from './assets/load-profile-images/poland.png';
+
 import Recommendation from './components/Recommendation/Recommendation'
 import Comparision from './components/Comparision/Comparision'
 import LoadProfile1 from './components/LoadProfile/LoadProfile1'
@@ -18,6 +29,7 @@ import LoadProfile3 from './components/LoadProfile/LoadProfile3'
 import LoadProfile4 from './components/LoadProfile/LoadProfile4'
 import LoadProfile5 from './components/LoadProfile/LoadProfile5'
 import LoadProfile6 from './components/LoadProfile/LoadProfile6'
+import Layout from './components/Layout/Layout'
 
 
 function App() {
@@ -41,25 +53,22 @@ function App() {
           {/* Sweden */}
           <Route path='/loadprofile1' element={<LoadProfile1 image={image1}/>}></Route>
            {/* Norway */}
-          <Route path='/loadprofile2' element={<LoadProfile2 image={image1}/>}></Route>
+          <Route path='/loadprofile2' element={<LoadProfile2 image={image2}/>}></Route>
           {/* Netherland */}
-          <Route path='/loadprofile3' element={<LoadProfile3 image={image1}/>}></Route>
+          <Route path='/loadprofile3' element={<LoadProfile3 image={image3}/>}></Route>
           {/*Ireland*/}
-          <Route path='/loadprofile4' element={<LoadProfile4 image={image1} />}></Route>
+          <Route path='/loadprofile4' element={<LoadProfile4 image={image5} />}></Route>
           {/*Malysia*/}
-          <Route path='/loadprofile5' element={<LoadProfile5 image={image1}/>}></Route>
+          <Route path='/loadprofile5' element={<LoadProfile5 image={image4}/>}></Route>
           
           
           {/*this should be with improvement of Poland (Diesel)*/}
-          <Route path='/loadprofile6' element={<LoadProfile6 image={image1} button="Recommendation"/>}></Route>
+          <Route path='/loadprofile6' element={<LoadProfile6 image={poland} button="Recommendation"/>}></Route>
         
           {/*Recommendation*/}
           <Route path='/loadprofile6/recommendation' element={<Recommendation button="Comparision"/>}/>
 
-          {/*Comparision*/}
-{/* 
-          <Route path='/loadprofile6/recommendation/comparision' element={<Comparision capitalFactor={1000}  interest_p={0} fuel_p={1.36} consumption={0.3} button="View Comparision"/>}/> */}
-
+          <Route path='/loadprofile6/layout' element={<Layout />}/>
 
         </Routes>
       </Router>

@@ -1,0 +1,8 @@
+.layout__image > img {
+    width: 800px;
+    height: 500px;
+}
+
+.layout__image{
+    margin-bottom: 15px;
+}

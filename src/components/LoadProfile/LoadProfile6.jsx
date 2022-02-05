@@ -96,7 +96,7 @@ function LoadProfile6({image, button}) {
   return (
         <div className="loadProfile">
             <div className="loadProfile__container">
-                <h1>Load Profile 1</h1>
+                <h1>Poland</h1>
                 <div className="loadProfile__chart">
                     <img src={image}/>
                 </div>
@@ -196,6 +196,12 @@ function LoadProfile6({image, button}) {
 
                         </div>
                         )}
+
+                        <div className="loadProfile__button"> 
+                            <Link to="/loadprofile6/layout">
+                                <button>2D and 3D Model</button>
+                            </Link>
+                        </div>
                     
                     </div>
 

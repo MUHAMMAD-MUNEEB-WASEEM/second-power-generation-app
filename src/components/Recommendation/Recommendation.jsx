@@ -159,7 +159,7 @@ function Recommendation({button}) {
                         <div className="loadProfile__technical">
 
                             <div className="loadProfile__technical__heading">
-                                <h1>Technical Analysis</h1>
+                                <h1>Electrical Parameters</h1>
                             </div>
 
                             <div className="loadProfile__result">
@@ -203,7 +203,7 @@ function Recommendation({button}) {
                         <div className="loadProfile__economical">
 
                             <div className="loadProfile__economical__heading">
-                                <h1>Economical Analysis</h1>
+                                <h1>Costing</h1>
                             </div>
 
                             <div className="loadProfile__result">
